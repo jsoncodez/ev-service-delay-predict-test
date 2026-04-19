@@ -10,14 +10,7 @@ model_regression = joblib.load('./models/rf_model_regression_wait_time.pkl')  # 
 app = Flask(__name__)
 
 # Explicit CORS config — covers all routes and methods
-CORS(app,
-     origins="*",
-     allow_headers=["Content-Type", "Authorization"],
-     methods=["GET", "POST", "OPTIONS"],
-     supports_credentials=False)
-@app.route('/')
-def home():
-    return 'EV Service Delay Prediction API'
+CORS(app)
 
 # Route to predict service delay and wait time
 @app.route('/predict', methods=['POST'])
